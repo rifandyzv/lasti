@@ -1,0 +1,6 @@
+.venv
+__pycache__
+*.csv
+harga.txt
+produk.txt
+*.png
