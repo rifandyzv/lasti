@@ -1,10 +1,18 @@
 from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 import mysql.connector
+from fastapi.middleware.cors import CORSMiddleware
 import schemas
+import json
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*']
+)
 db = mysql.connector.connect(
     user='root', 
     password='asd', 
@@ -14,6 +22,50 @@ db = mysql.connector.connect(
     auth_plugin='caching_sha2_password')
 
 cursor = db.cursor()
+def Convert(a):
+    it = iter(a)
+    res_dct = dict(zip(it, it))
+    return res_dct
+@app.get("/test")
+async def test() :
+    return {"test" : "123"}
+
+@app.get("/items")
+async def get_all_items():
+    if db.is_connected():
+        products = []
+        try:
+
+            # cursor.execute('SELECT * FROM products')
+            # result = cursor.fetchall()
+            # dict_list = []
+            # for i in range(len(result)):
+            #     dict = {
+            #     "id": result[i][0],
+            #     "product_name": result[i][1],
+            #     "harga": result[i][2],
+            #     "jumlah": result[i][3]}
+            # dict_list.append(dict)
+            # dict_item = {"items": dict_list}
+            # return dict_item
+            cursor.execute('SELECT * FROM products')
+            result = cursor.fetchall()
+            for data in result :
+                product = {}
+                product["id"] = data[0]
+                product["nama"] = data[1]
+                product["harga"] = data[2]
+                product["jumlah"] = data[3]
+                products.append(product)
+            return products
+        except Exception as e:
+            print(e)
+            return {"message": "there was an error: query gajalan"}
+
+    else:
+        raise HTTPException(
+    status_code=404, detail='DB not connected!')
+
 
 
 @app.post("/item")

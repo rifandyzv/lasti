@@ -4,12 +4,14 @@ import json
 import requests
 import time
 
-async def postRequestAPI(url, body) :
-    return await requests.post(url, data=body)
-    
+def postRequestAPI(url, body) :
+    req = requests.post(url, data=body)
+    time.sleep(1)
+    return req
+
+
 def read_barcodes(frame):
     barcodes = pyzbar.decode(frame)
-    url = 'http://localhost:8000/item'
     for barcode in barcodes: 
         
         x, y , w, h = barcode.rect
@@ -21,12 +23,14 @@ def read_barcodes(frame):
         #2
         font = cv2.FONT_HERSHEY_DUPLEX
         #3
-        req = requests.post(url, data = barcode_info)
-        print(req)
-        # cv2.putText(frame, "SCANNED", (x + 6, y - 6), font, 1.0, (255, 255, 255), 1)
+        url = 'http://localhost:8000/item'
+
+        # req = requests.post(url, data = barcode_info)
+        res = postRequestAPI(url, barcode_info)
+        print(res)
+        # cv2.putText(frame, res, (x + 6, y - 6), font, 1.0, (255, 255, 255), 1)
 
     return frame
-
 
 def main():
     #1
