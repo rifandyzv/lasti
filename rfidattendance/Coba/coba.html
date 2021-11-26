@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel='stylesheet' type='text/css' href="css/bootstrap.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="xlogo-latest.png.pagespeed.ic.PCbntBQpax.webp" style="width: 12em; height: auto;"/>
+            <a href="index.php"><b>Lottemart Pickup Service</b></a>
+        </div>
+    </div>
+
+    <main>
+      <h1 class="slideInDown animated"></h1>
+    <!-- Log In -->
+    <section>
+      <div class="slideInDown animated">
+        <div class="login-page">
+          <div class="form">
+            <div class="alert1"></div>
+            <form class="reset-form" action="reset_pass.php" method="post" enctype="multipart/form-data">
+              <input type="email" name="email" placeholder="E-mail..." required/>
+              <button type="submit" name="reset_pass">Reset</button>
+              <p class="message"><a href="#"><b>Login</b></a></p>
+            </form>
+            <form class="login-form" action="ac_login.php" method="post" enctype="multipart/form-data">
+              <input type="email" name="email" id="email" placeholder="Email" required/>
+              <input type="password" name="pwd" id="pwd" placeholder="Password" required/>
+              <button type="submit" name="login" id="login">login</button>
+              <p class="message">Forgot your Password? <a href="#">Reset your password</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>   
+</body>
+
+<style>
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body{
+    background: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    font-size: 15px;
+}
+header, main { 
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.header { 
+  padding: 5px;
+  width: 100%;
+  height: 90px;
+  color: #fff;
+}
+
+
+.logo a {
+  text-decoration: none; 
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  color: #ED1C24;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+  display: inline-block;
+  margin-left: 20px;
+}
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* .topnav {
+  overflow: hidden;
+  background-color: #187881;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none !important;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #20a1ac;
+  color: black;
+}
+
+.topnav .icon {
+  display: none;
+} */
+
+/* @media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .header { 
+    height: 80px;
+  }
+  .logo a {
+    font-size: 27px;
+    line-height: 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .modalss-content {
+    width: 90% !important;
+  }
+} */
+
+tbody tr:nth-child(even){background-color: #388994;}
+tbody tr:nth-child(odd){background-color: #3f9aa6;}
+
+tbody tr:hover {opacity: 0.8;}
+
+h3 {
+  padding: 15px;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.bootbox-body {
+  color: #fff !important;
+}
+
+
+
+.modal-body input[type="text"],
+.modal-body input[type="email"],
+.modal-body input[type="date"],
+.modal-body input[type="time"],
+.modal-body select,
+.modal-body input[type="password"] {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+  background-color: #e8eeef;
+  color: #000;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+  border: 1px solid #e8eeef;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:foPat {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+.up_info1, .up_info2 {
+  display: none;
+  width: 270px;
+  height: 40px;
+  font-size: 17px;
+  font-family: "Ubuntu", sans-serif;
+  padding: 5px;
+  margin-right: 20px;
+  text-align: center;
+  position: absolute;
+}
+
+
+.login-page {
+  width: 360px;
+  padding: 30px 0 0;
+  margin: auto;
+}
+ .form {
+  position: relative;
+  z-index: 1;
+  background: rgba(100, 100, 100, 0.3);
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+}
+ .form input {
+  font-family: "Ubuntu", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 15px;
+  border-radius: 8px;
+}
+ .form button {
+  font-family: "Ubuntu", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  margin-top: 20px;
+  background: #ED1C24;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 15px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #ED1C24;
+}
+.form .message {
+  margin: 25px 0 0;
+  color: #fff;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+.form .message a {
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.form .alert {
+  border-radius: 8px;
+}
+.form .alert1 {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+#reset{
+  display: none;
+}
+.form .reset-form {
+  display: none;
+}
+.container { 
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+ .container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+ .container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+ .container .info span .fa {
+  color: #EF3B3A;
+}
+.slideInRight {
+  animation-name: slideInRight;
+} 
+.slideInDown {
+  animation-name: slideInDown;
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.modal-content {
+  background: rgba(0, 0, 0, 0.05);
+}
+</style>
+
+
+</html>
